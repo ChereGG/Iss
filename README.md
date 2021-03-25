@@ -1,7 +1,7 @@
 BIBLIOTECA
 
 O biblioteca contine o lista de carti si o lista de abonati ai bibliotecii care au drept de imprumut asupra cartilor. Pentru fiecare abonat se va retine un ID de inregistrare, Nume, Prenume,
-	adresa,telefon si data expirarii abonamentului la biblioteca.
+	adresa,telefon.
 Cartile pot exista in mai multe exemplare , o carte se va retine prin: ID, Titlu, Autor, Editura, si Data Publicarii
 O inchiriere are loc intre un abonat si biblioteca pentru o carte. O inchiriere se va reprezenta prin ID-ul iinchirierii si cate un ID pentru utilizator si cartea inchiriata
 	si un atribut care marcheaza inregistrarea drept restituita sau nu.
