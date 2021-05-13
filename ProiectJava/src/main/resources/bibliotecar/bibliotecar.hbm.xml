@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="domain.Bibliotecar"
+           table="Bibliotecari">
+        <id name="id" type="long" column="id">
+            <generator class="increment"/>
+        </id>
+        <property
+                name="nume" type="string" column="nume"
+        />
+        <property
+                name="prenume" type="string" column="prenume"
+        />
+        <property
+                name="username" type="string" column="username"
+        />
+        <property
+                name="hashing" type="int" column="hashing"
+        />
+
+    </class>
+</hibernate-mapping>

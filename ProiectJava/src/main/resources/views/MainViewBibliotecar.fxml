@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="883.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainBibliotecarController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="883.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainBibliotecarController">
    <children>
       <Button fx:id="vizualizeazaInchirieriButton" layoutX="24.0" layoutY="65.0" mnemonicParsing="false" onMouseClicked="#vizualizeazaInchirieriEvent" prefHeight="25.0" prefWidth="250.0" text="Vizualizeaza Starea Inchirieriilor Bibliotecii" />
       <TableView fx:id="inchirieriTableView" layoutX="445.0" layoutY="3.0" prefHeight="416.0" prefWidth="431.0">
