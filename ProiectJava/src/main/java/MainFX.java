@@ -1,14 +1,12 @@
 import controller.LogInController;
+import domain.Penalizare;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
-import repository.BibliotecarHiberRepo;
-import repository.BibliotecarRepository;
-import repository.CititorHiberRepo;
-import repository.CititorRepository;
+import repository.*;
 import service.Service;
 
 
@@ -21,7 +19,10 @@ public class MainFX extends Application {
     public static Service getService(){
         CititorRepository cititorRepository=new CititorHiberRepo();
         BibliotecarRepository bibliotecarRepository=new BibliotecarHiberRepo();
-        Service service=new Service(cititorRepository,bibliotecarRepository);
+        CarteRepository carteRepository=new CarteHiberRepo();
+        InchiriereRepository inchiriereRepository=new InchiriereHiberRepo();
+        PenalizareRepository penalizareRepository=new PenalizareHiberRepo();
+        Service service=new Service(cititorRepository,bibliotecarRepository,carteRepository,inchiriereRepository,penalizareRepository);
         return service;
     }
 

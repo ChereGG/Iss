@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="domain.Penalizare"
+           table="Penalizari">
+        <id name="id" type="long" column="id">
+            <generator class="increment"/>
+        </id>
+        <property
+                name="idUtilizator" type="long" column="idUtilizator"
+        />
+        <property
+                name="dataPenalizarii" type="string" column="dataPenalizarii"
+        />
+        <property name="dataFinalizarii" type="string" column="dataFinalizarii"/>
+        <property name="ended" type="boolean" column="ended"/>
+    </class>
+</hibernate-mapping>

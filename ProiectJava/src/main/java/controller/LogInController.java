@@ -41,7 +41,7 @@ public class LogInController {
         String username=this.usernameTextField.getText();
         String password=this.passwordTextField.getText();
 
-        Utilizator utilizator=this.service.getUtilizator(username);
+        Utilizator utilizator=this.service.findUtilizator(username);
         if(utilizator!= null){
             if(utilizator.getHashing()==password.hashCode()){
                 if(utilizator instanceof Cititor){

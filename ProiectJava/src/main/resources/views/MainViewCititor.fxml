@@ -18,5 +18,7 @@
       </TableView>
       <Button fx:id="inchiriazaCarteButton" layoutX="547.0" layoutY="411.0" mnemonicParsing="false" onMouseClicked="#inchiriazaCarteEvent" prefHeight="25.0" prefWidth="98.0" text="Inchiriaza carte" />
       <Button fx:id="stareaInchirierillorButton" layoutX="51.0" layoutY="150.0" mnemonicParsing="false" onMouseClicked="#stareaInchirieriilorEvent" prefHeight="25.0" prefWidth="187.0" text="Vizualizeaza Cartile Inchiriate" />
+      <Button fx:id="restituieButton" layoutX="51.0" layoutY="277.0" mnemonicParsing="false" onMouseClicked="#restituieEvent" prefHeight="25.0" prefWidth="187.0" text="Restituie o Carte" />
+      <Button fx:id="logOutButton" layoutX="51.0" layoutY="587.0" mnemonicParsing="false" onMouseClicked="#LogOutEvent" prefHeight="25.0" prefWidth="89.0" text="LogOut" />
    </children>
 </AnchorPane>

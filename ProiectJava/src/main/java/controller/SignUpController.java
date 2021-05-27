@@ -62,7 +62,7 @@ public class SignUpController {
         String email=this.emailTextField.getText();
         String adresa=this.adresaTextField.getText();
         String telefon=this.telefonTextField.getText();
-        Utilizator utilizator=this.service.getUtilizator(username);
+        Utilizator utilizator=this.service.findUtilizator(username);
         if(utilizator==null){
             if(this.utilizatorTypeCombo.getValue().equals("Cititor")){
                 Cititor cititor=new Cititor(username,password.hashCode(),nume,prenume,email ,adresa,telefon);

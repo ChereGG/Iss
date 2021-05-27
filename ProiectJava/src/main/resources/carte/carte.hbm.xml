@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="domain.Carte"
+           table="Carti">
+        <id name="id" type="long" column="id">
+            <generator class="increment"/>
+        </id>
+        <property
+                name="titlu" type="string" column="titlu"
+        />
+        <property
+                name="autor" type="string" column="autor"
+        />
+        <property
+                name="editura" type="string" column="editura"
+        />
+        <property
+                name="data" type="string" column="data"
+        />
+    </class>
+</hibernate-mapping>

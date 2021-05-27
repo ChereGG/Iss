@@ -1,7 +1,6 @@
 package repository;
 
 import domain.Carte;
-import domain.Cititor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
@@ -9,7 +8,9 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.query.Query;
 
-public class CititorHiberRepo implements CititorRepository {
+import java.util.ArrayList;
+
+public class CarteHiberRepo implements  CarteRepository {
 
     private SessionFactory sessionFactory;
 
@@ -33,11 +34,12 @@ public class CititorHiberRepo implements CititorRepository {
     }
 
     @Override
-    public void add(Cititor cititor) {
+    public void add(Carte carte) {
         this.initialize();
+
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
-            session.save(cititor);
+            session.save(carte);
             session.getTransaction().commit();
             this.close();
         } catch (Exception ex) {
@@ -46,37 +48,40 @@ public class CititorHiberRepo implements CititorRepository {
     }
 
     @Override
-    public Cititor get(String username) {
+    public Carte get(String username) {
+        return null;
+    }
+
+    @Override
+    public Iterable<Carte> findAll() {
         this.initialize();
-        Cititor cititor = null;
+        Iterable<Carte> carti = new ArrayList<>();
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
-            Query query = session.createQuery("from Cititor where username=:username");
-            query.setParameter("username", username);
-            cititor = (Cititor) query.uniqueResult();
+            Query query = session.createQuery("from Carte");
+            carti = (ArrayList<Carte>) query.getResultList();
             session.getTransaction().commit();
             this.close();
         } catch (Exception ex) {
             this.close();
         }
-        return cititor;
+        return carti;
     }
 
     @Override
-    public Cititor getById(Long id) {
+    public Carte findOneId(Long id) {
         this.initialize();
-        Cititor cititor = null;
+        Carte carte = null;
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
-            Query query = session.createQuery("from Cititor where id=:id");
+            Query query = session.createQuery("from Carte where id=:id");
             query.setParameter("id", id);
-            cititor = (Cititor) query.uniqueResult();
+            carte = (Carte) query.uniqueResult();
             session.getTransaction().commit();
             this.close();
         } catch (Exception ex) {
             this.close();
         }
-        return cititor;
+        return carte;
     }
 }
-

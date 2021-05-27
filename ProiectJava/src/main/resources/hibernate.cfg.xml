@@ -19,5 +19,10 @@
         <mapping resource="cititor/cititor.hbm.xml"/>
 
         <mapping resource="bibliotecar/bibliotecar.hbm.xml"/>
+
+        <mapping resource="carte/carte.hbm.xml"/>
+
+        <mapping resource="inchiriere/inchiriere.hbm.xml"/>
+        <mapping resource="penalizare/penalizare.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

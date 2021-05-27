@@ -1,7 +1,7 @@
 package repository;
 
-import domain.Carte;
-import domain.Cititor;
+import domain.Inchiriere;
+import domain.Penalizare;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
@@ -9,8 +9,9 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.query.Query;
 
-public class CititorHiberRepo implements CititorRepository {
+import java.util.ArrayList;
 
+public class PenalizareHiberRepo implements PenalizareRepository{
     private SessionFactory sessionFactory;
 
     private void initialize() {
@@ -33,11 +34,12 @@ public class CititorHiberRepo implements CititorRepository {
     }
 
     @Override
-    public void add(Cititor cititor) {
+    public void add(Penalizare penalizare) {
         this.initialize();
+
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
-            session.save(cititor);
+            session.save(penalizare);
             session.getTransaction().commit();
             this.close();
         } catch (Exception ex) {
@@ -46,37 +48,24 @@ public class CititorHiberRepo implements CititorRepository {
     }
 
     @Override
-    public Cititor get(String username) {
-        this.initialize();
-        Cititor cititor = null;
-        try (Session session = sessionFactory.openSession()) {
-            session.beginTransaction();
-            Query query = session.createQuery("from Cititor where username=:username");
-            query.setParameter("username", username);
-            cititor = (Cititor) query.uniqueResult();
-            session.getTransaction().commit();
-            this.close();
-        } catch (Exception ex) {
-            this.close();
-        }
-        return cititor;
+    public Penalizare get(String username) {
+        return null;
     }
 
     @Override
-    public Cititor getById(Long id) {
+    public Iterable<Penalizare> findPenalizariCurente(Long idCititor) {
         this.initialize();
-        Cititor cititor = null;
+        Iterable<Penalizare> penalizari = new ArrayList<>();
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
-            Query query = session.createQuery("from Cititor where id=:id");
-            query.setParameter("id", id);
-            cititor = (Cititor) query.uniqueResult();
+            Query query = session.createQuery("from Penalizare where idUtilizator=:id and ended=false");
+            query.setParameter("id", idCititor);
+            penalizari = (Iterable<Penalizare>) query.getResultList();
             session.getTransaction().commit();
             this.close();
         } catch (Exception ex) {
             this.close();
         }
-        return cititor;
+        return penalizari;
     }
 }
-
